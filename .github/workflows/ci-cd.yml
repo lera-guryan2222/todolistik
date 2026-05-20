@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  DOCKER_IMAGE: guriian/todo
+  DOCKER_IMAGE: guriian/todolistik
 
 jobs:
   lint:

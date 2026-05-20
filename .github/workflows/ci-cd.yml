@@ -18,11 +18,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Cache pip
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('backend/requirements.txt') }}
+          cache: 'pip'
+          cache-dependency-path: 'backend/requirements.txt'
       - name: Install dependencies
         run: |
           cd backend
@@ -30,7 +27,7 @@ jobs:
       - name: Run linter
         run: |
           cd backend
-          flake8 app/ --max-line-length=120 --ignore=E203,W503
+          flake8 app/
 
   test:
     runs-on: ubuntu-latest
